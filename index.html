@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">summy🐼</a>
+        <nav>
+            <a href="#home" class="active">home</a>
+            <a href="#skills">skills</a>
+            <a href="#education">education</a>
+            <a href="#experience">experience</a>
+            <a href="#contact">contact</a>
+            <a href="#service">service</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-img">
+            <img src="image/samuel.png" alt="samuel image">
+        </div>
+        <div class="home-content">
+            <h1>hi,<br>it's <span>samuel</span></h1>
+            <h3 class="typing-text">i'm a<span></span></h3>
+            <p>hey again 🐼 it's a software developer from rwanda
+                <br> So i'm here to be your facilitator to guide you to be interactive in<br>
+                digital life of technology. Enjoy your new life section of technology, friend.<br>
+                Let world be changed, make life easy for you🧏
+            </p>
+            <a href="#" class="btn">hire me</a>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <p>Here are some of the core technologies and tools I work with:</p>
+        <ul>
+            <li>HTML, CSS, and JavaScript</li>
+            <li>Python & Django</li>
+            <li>React.js & Node.js</li>
+            <li>Database Management (MongoDB, MySQL)</li>
+            <li>UI/UX Design & Responsive Development</li>
+        </ul>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+        <h2>Education</h2>
+        <p>Here’s a summary of my academic background:</p>
+        <div class="edu-box">
+            <h3>Advanced Level - MCE Option</h3>
+            <p>Completed in 2024 at GS Saint Joseph Kabgayi</p>
+            <h3>Secondary Level - General Education</h3>
+            <p>Completed in 2021 at GS Nyamabuye</p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <p>Below are some of my experiences in software development and tech projects:</p>
+        <ul>
+            <li>Internship at TechRwanda — worked on front-end interfaces and responsive websites</li>
+            <li>Personal Project: "Twunganirane" — a platform to support vulnerable people</li>
+            <li>Freelance Developer — built small business websites for local entrepreneurs</li>
+        </ul>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="service">
+        <h2>Services</h2>
+        <p>Here’s what I can offer:</p>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Web Development</h3>
+                <p>Building modern, responsive, and user-friendly websites.</p>
+            </div>
+            <div class="service-item">
+                <h3>App Design</h3>
+                <p>Designing web apps with smooth interfaces.</p>
+            </div>
+            <div class="service-item">
+                <h3>Technical Support</h3>
+                <p>Helping clients to get their own websites up and running smoothly .</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Get in touch with me for collaborations or projects:</p>
+        <form action="#" method="post">
+            <input type="text" placeholder="Your Name" required><br>
+            <input type="email" placeholder="Your Email" required><br>
+            <textarea placeholder="Your Message" rows="5" required></textarea><br>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+    </section>
+
+    <footer>
+        <span>created by <a href="#">samuel</a> | &copy; 2025</span>
+        <a href="#" class="footer-logo">summy🐼</a>
+        <!-- <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div> -->
+        <span class="scroll-top">
+            <i class="uil uil-arrow-up scroll-top-icon"></i>
+        </span>
+    </footer>
+    <script>
+  // Select all navigation links
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('section');
+
+  // Function to hide all sections
+  function hideAllSections() {
+    sections.forEach(section => section.style.display = 'none');
+  }
+
+  // Show the home section by default
+  hideAllSections();
+  document.getElementById('home').style.display = 'flex';
+
+  // Add click event to each link
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent page reload
+      const targetId = link.getAttribute('href').replace('#', '');
+      
+      // Remove active class from all links
+      navLinks.forEach(l => l.classList.remove('active'));
+      // Add active class to the clicked one
+      link.classList.add('active');
+
+      // Hide all sections
+      hideAllSections();
+
+      // Show target section
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        if (targetId === 'home') {
+          targetSection.style.display = 'flex';
+        } else {
+          targetSection.style.display = 'block';
+        }
+      }
+
+      // Optional smooth scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+<script>
+/* ===== Mobile nav toggle & SPA-friendly behavior ===== */
+
+(function () {
+  // Prefer actual header tag but also support 'hearder' if present
+  const headerEl = document.querySelector('header') || document.querySelector('hearder');
+  const originalNav = headerEl ? headerEl.querySelector('nav') : null;
+
+  // Create mobile overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'mobile-overlay';
+  document.body.appendChild(overlay);
+
+  // Create menu toggle button
+  const menuBtn = document.createElement('button');
+  menuBtn.className = 'menu-toggle';
+  menuBtn.setAttribute('aria-label', 'Open navigation menu');
+  menuBtn.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+  document.body.appendChild(menuBtn);
+
+  // Create mobile nav container
+  const mobileNav = document.createElement('nav');
+  mobileNav.className = 'mobile';
+
+  // If original nav exists, clone its links into mobile nav. Otherwise create fallback links.
+  if (originalNav) {
+    const links = Array.from(originalNav.querySelectorAll('a'));
+    links.forEach(a => {
+      const copy = a.cloneNode(true);
+      // ensure links point to IDs (#home, #skills, etc.)
+      mobileNav.appendChild(copy);
+    });
+  } else {
+    // fallback links (shouldn't be needed if original nav present)
+    ['home','skills','education','experience','contact','service'].forEach(id => {
+      const a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = id;
+      mobileNav.appendChild(a);
+    });
+  }
+
+  document.body.appendChild(mobileNav);
+
+  // Toggle function
+  function toggleMenu(force) {
+    const open = typeof force === 'boolean' ? force : !mobileNav.classList.contains('open');
+    mobileNav.classList.toggle('open', open);
+    menuBtn.classList.toggle('open', open);
+    overlay.classList.toggle('show', open);
+    // accessibility
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  // events
+  menuBtn.addEventListener('click', () => toggleMenu());
+  overlay.addEventListener('click', () => toggleMenu(false));
+
+  // SPA nav behavior: show/hide sections and keep active class consistent
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(s => s.style.display = 'none');
+
+    const target = document.getElementById(id);
+    if (!target) return;
+    // keep home as flex to preserve layout
+    target.style.display = id === 'home' ? 'flex' : 'block';
+
+    // update all nav links (desktop)
+    const allNavLinks = document.querySelectorAll('nav a');
+    allNavLinks.forEach(link => {
+      link.classList.toggle('active', (link.getAttribute('href') || '') === ('#' + id));
+    });
+  }
+
+  // Clicking links inside mobile nav: close menu and show section
+  mobileNav.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    e.preventDefault();
+    const targetId = (a.getAttribute('href') || '').replace('#','');
+    showSection(targetId || 'home');
+    toggleMenu(false);
+    // scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Also ensure desktop links (if present) use SPA behavior
+  const desktopLinks = document.querySelectorAll('header nav a, hearder nav a, nav a');
+  desktopLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = (link.getAttribute('href') || '').replace('#','') || 'home';
+      showSection(targetId);
+      // close mobile menu if open
+      toggleMenu(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ensure home is visible initially
+  showSection('home');
+
+  // Close menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 995) toggleMenu(false);
+  });
+})();
+</script>
+
+
+</body>
+</html>
